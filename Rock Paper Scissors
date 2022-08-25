@@ -1,0 +1,80 @@
+import random
+import sys
+print("ROCK, PAPER, SCISSORS")
+print("You vs Skynet")
+wins=0
+losses=0
+ties=0
+while True:
+  print("enter your move (r)ock, (p)aper, (s)cissors")
+  playermove=input()
+  if playermove =="r" or playermove == "p" or playermove =="s":
+    print("rock paper scissors shoot!")
+  else:
+    continue
+  randomnum=random.randint(1,3)
+ 
+  
+  if randomnum==1:
+    computermove="r"
+    print("rock vs")
+  elif randomnum==2:
+    computermove="p"
+    print("paper vs")
+  elif randomnum==3:
+    computermove="s"
+    print("scissors vs")
+
+  if playermove=="r":
+    print("rock")
+  elif playermove=="p":
+    print("paper")
+  elif playermove=="s":
+    print("scissors")
+
+  if playermove==computermove:
+    print("TIE")
+    ties=ties+1
+  elif playermove=="r" and computermove=="s":
+    print("human wins")
+    wins=wins+1
+  elif playermove=="p" and computermove=="r":
+    print("human wins")
+    wins=wins+1
+  elif playermove=="s" and computermove=="p":
+    print("human wins")
+    wins=wins+1
+  elif computermove=="r" and playermove=="s":
+    print("AI wins")
+    losses=losses+1
+  elif computermove=="p" and playermove=="r":
+    print("AI wins")
+    losses=losses+1
+  elif computermove=="s" and playermove=="p":
+    print("AI wins")
+    losses=losses+1
+  
+  print("wins:" + str(wins))
+  print("losses:"+str(losses))
+  print("ties:"+str(ties))
+
+  print("play again? (yes or no)")
+  playagain=input()
+  if playagain=="yes":
+    continue
+  elif playagain=="no":
+    if wins>losses:
+      print("Skynet has fallen, good job!")
+    elif losses>wins:
+      print("Skynet has bested the humans")
+    else:
+      print("Skynet and humans can live as equals")
+    sys.exit()
+  else:
+    if wins>losses:
+      print("Skynet has fallen, good job!")
+    elif losses>wins:
+      print("Skynet has bested the humans")
+    else:
+      print("Skynet and humans can live as equals")
+    sys.exit()
